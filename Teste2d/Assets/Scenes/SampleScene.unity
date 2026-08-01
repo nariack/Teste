@@ -546,6 +546,7 @@ GameObject:
   - component: {fileID: 741477542}
   - component: {fileID: 741477541}
   - component: {fileID: 741477545}
+  - component: {fileID: 741477546}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -713,6 +714,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f63b24863ad4b04f84b7c44f0204a92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::player1
+--- !u!114 &741477546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 741477540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7f48e87e7902be4d949f79c79c4fa94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::player1
+  jumpForce: 7
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
   speed: 10
 --- !u!1 &1084555159
 GameObject:
@@ -726,8 +743,8 @@ GameObject:
   - component: {fileID: 1084555161}
   - component: {fileID: 1084555160}
   - component: {fileID: 1084555163}
-  m_Layer: 0
-  m_Name: Floor
+  m_Layer: 6
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -810,7 +827,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.5566038, b: 0.19014418, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
