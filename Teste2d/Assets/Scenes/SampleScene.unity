@@ -2166,7 +2166,6 @@ GameObject:
   - component: {fileID: 741477545}
   - component: {fileID: 741477546}
   - component: {fileID: 741477548}
-  - component: {fileID: 741477547}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -2334,13 +2333,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f63b24863ad4b04f84b7c44f0204a92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::player1
-  jumpForce: 7
-  groundLayer:
-    m_Bits: 0
-  speed: 10
-  HP: 100
-  HarmLayer:
-    m_Bits: 0
 --- !u!114 &741477546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2362,22 +2354,6 @@ MonoBehaviour:
   HarmLayer:
     serializedVersion: 2
     m_Bits: 128
---- !u!111 &741477547
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 741477540}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Animation: {fileID: 7400000, guid: b49892471f15b9c43b7350f0c811445d, type: 2}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 0
-  m_AnimatePhysics: 0
-  m_UpdateMode: 0
-  m_CullingType: 0
 --- !u!95 &741477548
 Animator:
   serializedVersion: 7
