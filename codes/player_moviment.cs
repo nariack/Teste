@@ -19,15 +19,27 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    private void Update()
+    private void OnEnable()
     {
-        horizontal = Input.GetAxisRaw("Horizontal");
+        player_input.on_jump += Jump;
+    }
 
-        //Pulo
-        if (Input.GetKeyDown(KeyCode.Space) && onGround)
+    private void OnDisable()
+    {
+        player_input.on_jump -= Jump;
+    }
+
+    private void Jump()
+    {
+        if (onGround)
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
+    }
+
+    private void Update()
+    {
+        horizontal = player_input.horizontal;
 
         // Queda
         if (rb.linearVelocity.y < 0)
@@ -35,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
             rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
         }
         // Pulo curto
-        else if (rb.linearVelocity.y > 0 && !Input.GetKey(KeyCode.Space))
+        else if (rb.linearVelocity.y > 0 && !player_input.jump_held)
         {
             rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
         }
@@ -48,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (((1 << collision.gameObject.layer) & groundLayer) != 0)
+        if (((1 << collision.gameObject.layer) & groundLayer.value) != 0)
         {
             onGround = true;
         }
